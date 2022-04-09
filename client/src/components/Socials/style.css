@@ -1,0 +1,9 @@
+.social{
+    width: 100%;
+    display: flex;
+    justify-content:center;
+}
+
+.social__item{
+    padding: 0 20px;
+}
