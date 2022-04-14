@@ -3,5 +3,8 @@ module.exports = {
     password: 'root',
     database: 'anaglicia',
     host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'mysql',
+    define: {
+        timestamps: false
+    }
 }
