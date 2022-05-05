@@ -5,22 +5,22 @@ const portfolioController = require('../controllers/portfolio.js')
 //LISTAR TODOS OS PROJETOS
 router.get('/', portfolioController.index)
 
-//LISTAR PROJETOS POR ID
+// //LISTAR PROJETOS POR ID
 router.get('/:id', portfolioController.show)
 
-//LISTAR PROJETOS POR CATEGORIA
+// //LISTAR PROJETOS POR CATEGORIA
 router.get('/categoria/:id', portfolioController.categoria)
 
-//LISTAR PROJETOS POR CLIENTE
+// //LISTAR PROJETOS POR CLIENTE
 router.get('/cliente/:id', portfolioController.cliente)
 
-//CADASTRAR NOVO PROJETO
-router.post('/cadastrar', portfolioController.add)
+// //CADASTRAR NOVO PROJETO
+// router.post('/cadastrar', portfolioController.add)
 
-//EDITAR PROJETO
-router.put('/editar/:id', portfolioController.edit)
+// //EDITAR PROJETO
+// router.put('/editar/:id', portfolioController.edit)
 
-//EXCLUIR PROJETO
-router.delete('/excluir/:id', portfolioController.delete)
+// //EXCLUIR PROJETO
+// router.delete('/excluir/:id', portfolioController.delete)
 
 module.exports = router

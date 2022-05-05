@@ -1,33 +1,35 @@
-const { Model } = require('sequelize');
+const { Model } = require('sequelize')
 
 module.exports = (sequelize, DataTypes) => {
-    class Categoria extends Model {
+    class Estado extends Model {
 
         static associate(models) {
-            Categoria.hasMany(models.Portfolio, {
-                foreignKey: "fk_categoria",
-                as: "categoriaPortfolio"
+            Estado.hasMany(models.Cidade, {
+                foreignKey: "fk_estado",
+                as: "estadoCidade"
             })
         }
     }
-    Categoria.init({
-        id_categoria: {
+    Estado.init({
+        id_estado: {
             type: DataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             autoIncrement: true,
             allowNull: false,
             unique: true
         },
-        nome: {
-            type: DataTypes.STRING(80),
+        uf: {
+            type: DataTypes.STRING(2),
             allowNull: false
         }
     },
         {
-            tableName: "categorias",
+            tableName: "estados",
             sequelize,
             timestamps: false
         })
 
-    return Categoria
+    return Estado
 }
+
+

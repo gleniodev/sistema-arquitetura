@@ -2,14 +2,13 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const logger = require('morgan');
 
 const categoriasRouter = require('./routes/categorias');
-const clientesRouter = require('./routes/clientes');
-const contatoRouter = require('./routes/contato');
-const loginRouter = require('./routes/login');
-const portfolioRouter = require('./routes/portfolio');
 const usuariosRouter = require('./routes/usuarios');
+// const contatoRouter = require('./routes/contato');
+// const loginRouter = require('./routes/login');
+const portfolioRouter = require('./routes/portfolio');
+const cidadesRouter = require('./routes/cidades');
 
 const app = express();
 
@@ -17,18 +16,17 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/categorias', categoriasRouter);
-app.use('/clientes', clientesRouter);
-app.use('/contato', contatoRouter);
-app.use('/login', loginRouter);
-app.use('/portfolio', portfolioRouter);
 app.use('/usuarios', usuariosRouter);
+// app.use('/contato', contatoRouter);
+// app.use('/login', loginRouter);
+app.use('/portfolio', portfolioRouter);
+app.use('/cidades', cidadesRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
