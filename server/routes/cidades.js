@@ -6,6 +6,9 @@ const cidadeController = require('../controllers/cidade.js')
 router.get('/', cidadeController.index)
 
 //LISTAR CIDADES POR ID
-router.get('/:id', cidadeController.show)
+router.get('/buscar/:id', cidadeController.show)
+
+//LISTAR CIDADES POR NOME
+router.get('/filtrar', cidadeController.showByName)
 
 module.exports = router;

@@ -6,7 +6,7 @@ const portfolioController = require('../controllers/portfolio.js')
 router.get('/', portfolioController.index)
 
 // //LISTAR PROJETOS POR ID
-router.get('/:id', portfolioController.show)
+router.get('/buscar/:id', portfolioController.show)
 
 // //LISTAR PROJETOS POR CATEGORIA
 router.get('/categoria/:id', portfolioController.categoria)
