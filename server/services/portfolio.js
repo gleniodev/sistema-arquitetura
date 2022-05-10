@@ -32,6 +32,11 @@ portfolioService.getByClienteIdPortfolio = async id => {
     return portfolio
 }
 
+portfolioService.createPortfolio = async projeto => {
+    const novoProjeto = await Portfolio.create({ ...projeto })
+    return novoProjeto
+}
+
 module.exports = portfolioService
 
 

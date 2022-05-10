@@ -44,23 +44,28 @@ module.exports = (sequelize, DataTypes) => {
         },
         url_img_1: {
             type: DataTypes.STRING(500),
-            allowNull: false,
+            allowNull: true,
+            defaultValue: 'https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png'
         },
         url_img_2: {
             type: DataTypes.STRING(500),
-            allowNull: false,
+            allowNull: true,
+            defaultValue: 'https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png'
         },
         url_img_3: {
             type: DataTypes.STRING(500),
-            allowNull: false,
+            allowNull: true,
+            defaultValue: 'https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png'
         },
         url_img_4: {
             type: DataTypes.STRING(500),
-            allowNull: false,
+            allowNull: true,
+            defaultValue: 'https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png'
         },
         url_img_5: {
             type: DataTypes.STRING(500),
-            allowNull: false,
+            allowNull: true,
+            defaultValue: 'https://www.unfe.org/wp-content/uploads/2019/04/SM-placeholder.png'
         },
         fk_categoria: {
             type: DataTypes.INTEGER.UNSIGNED,

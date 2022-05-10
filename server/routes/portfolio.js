@@ -15,7 +15,7 @@ router.get('/categoria/:id', portfolioController.categoria)
 router.get('/cliente/:id', portfolioController.cliente)
 
 // //CADASTRAR NOVO PROJETO
-// router.post('/cadastrar', portfolioController.add)
+router.post('/cadastrar', portfolioController.add)
 
 // //EDITAR PROJETO
 // router.put('/editar/:id', portfolioController.edit)
