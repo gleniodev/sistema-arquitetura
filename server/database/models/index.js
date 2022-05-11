@@ -22,7 +22,7 @@ fs
         return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
     })
     .forEach(file => {
-        console.log("Carregando a model: " + file) //mostra qual model está com erro ao carregar
+        // console.log("Carregando a model: " + file) //mostra qual model está com erro ao carregar
         const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
         db[model.name] = model;
     });

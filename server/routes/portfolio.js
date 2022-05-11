@@ -18,9 +18,9 @@ router.get('/cliente/:id', portfolioController.cliente)
 router.post('/cadastrar', portfolioController.add)
 
 // //EDITAR PROJETO
-// router.put('/editar/:id', portfolioController.edit)
+router.put('/editar/:id', portfolioController.update)
 
 // //EXCLUIR PROJETO
-// router.delete('/excluir/:id', portfolioController.delete)
+router.delete('/excluir/:id', portfolioController.delete)
 
 module.exports = router

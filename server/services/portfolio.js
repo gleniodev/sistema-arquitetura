@@ -37,6 +37,21 @@ portfolioService.createPortfolio = async projeto => {
     return novoProjeto
 }
 
+portfolioService.updatePortfolio = async (id, projeto) => {
+    const updated = await Portfolio.update({ ...projeto }, {
+        where: { id_projeto: id }
+    })
+    return updated
+}
+
+portfolioService.deletePortfolio = async id => {
+    const destroyed = await Portfolio.destroy({
+        where: { id_projeto: id }
+    })
+    return destroyed
+}
+
+
 module.exports = portfolioService
 
 

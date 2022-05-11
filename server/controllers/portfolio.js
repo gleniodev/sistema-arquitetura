@@ -1,4 +1,4 @@
-const { getAllPortfolio, getByIdPortfolio, getByCategoriaIdPortfolio, getByClienteIdPortfolio, createPortfolio } = require('../services/portfolio')
+const { getAllPortfolio, getByIdPortfolio, getByCategoriaIdPortfolio, getByClienteIdPortfolio, createPortfolio, updatePortfolio, deletePortfolio } = require('../services/portfolio')
 const { createEnderecoObra } = require('../services/enderecosObras')
 
 const controller = {
@@ -77,8 +77,6 @@ const controller = {
             fk_cidade: id_cidade
         };
 
-        console.log(dadosEndereco)
-
         //SALVANDO ENDEREÇO NOVO
         const novoEnderecoObra = await createEnderecoObra(dadosEndereco);
         if (!novoEnderecoObra) {
@@ -103,12 +101,40 @@ const controller = {
         //SALVANDO PROJETO NOVO
         const novoProjeto = await createPortfolio(dadosProjeto);
         if (!novoProjeto) {
-            res.status(400).send({ message: "Projeto não encontrado!" })
+            res.status(400).send({ message: "Projeto não cadastrado!" })
         }
 
         const buscarNovoProjeto = await getByIdPortfolio(novoProjeto.id_projeto)
 
         res.status(200).json(buscarNovoProjeto)
+    },
+
+    update: async (req, res) => {
+        const { id } = req.params
+        const body = req.body
+
+        const projetoAtualizado = await updatePortfolio(id, body).catch(console.trace)
+
+        if (projetoAtualizado) {
+            const projeto = await getByIdPortfolio(id)
+            res.status(200).json(projeto)
+
+        } else {
+            res.status(500).send({ message: "Projeto não encontrado!" })
+        }
+
+    },
+
+    delete: async (req, res) => {
+        const { id } = req.params
+        const buscarProjeto = await getByIdPortfolio(id)
+
+        if (buscarProjeto) {
+            const projetoExcluido = await deletePortfolio(id)
+            res.status(200).send({ message: "Projeto excluído com sucesso!" })
+        } else {
+            res.status(500).send({ message: "Projeto não encontrado!" })
+        }
     }
 }
 
